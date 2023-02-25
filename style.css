@@ -4,20 +4,16 @@
   width: 100%;
   height: 100%;
   display: flex;
-  margin-left: 25px;
+  margin-left: 20px;
   align-items: center;
   font-family: "Audiowide", cursive;
   text-transform: capitalize;
-  font-size: 1.8em;
   z-index: 2;
   color: rgb(42, 8, 73);
-  transition: font-size 0.5s ease-in-out;
+  font-size: 26px;
 }
 
-button:not(:hover) .butonTxt {
-  transition: none;
-}
-button.space-button {
+.space-button {
   position: relative;
   width: 200px;
   height: 80px;
@@ -30,18 +26,10 @@ button.space-button {
     rgb(192, 154, 228) 0%,
     rgb(103, 20, 180) 100%
   );
+  transition: background-image 1s ease-in-out;
 }
-.space-button {
-  transition: background-color 0.5s ease-in-out;
-}
-.space-button:hover {
-  cursor: pointer;
-  border: 2px solid #fff;
-}
-.space-button:hover .butonTxt {
-  color: #fff;
-  font-size: 2.2em;
-}
+
+/* ANIMACIONES */
 @keyframes girar {
   from {
     transform: rotate(0deg);
@@ -50,9 +38,42 @@ button.space-button {
     transform: rotate(360deg);
   }
 }
-.space-button:hover .luna svg {
-  animation: girar 10s linear infinite;
+
+.space-button:hover {
+  cursor: pointer;
+  border: 2px solid #fff;
 }
+.space-button:hover .butonTxt {
+  color: #fff;
+  font-size: 36px;
+}
+.space-button .butonTxt {
+  transition: font-size 1s ease-in-out;
+}
+
+/* giramos la luna */
+.space-button .luna svg {
+  animation: girar 15s linear infinite;
+}
+.space-button:hover .luna svg {
+  animation: girar 5s linear infinite;
+}
+.space-button:active .luna svg {
+  animation: girar 3s linear infinite;
+}
+
+/**/
+
+.space-button:active {
+  border: 2px solid rgb(42, 8, 73);
+  background-image: radial-gradient(
+    circle at 80% 2rem,
+    rgb(192, 154, 228) 0%,
+    #fff 100%
+  );
+  transition: background-image 2s ease-in-out;
+}
+
 .luna {
   display: flex;
   justify-content: end;
@@ -65,10 +86,4 @@ button.space-button {
   opacity: 0.5;
   transform: translate(0%, 0%);
   transform-origin: center center;
-}
-
-.space-button:active {
-  border: 2px solid rgb(42, 8, 73);
-  background-color: #fff;
-  /* transition: background-color 0.5s ease-in-out; */
 }
